@@ -23,7 +23,18 @@ public class FakeLocation extends CordovaPlugin
 				callbackContext.success(1);
 			}
                         return true;
-             }
+             }else
+                 {
+                 boolean isMock = false;
+                 if (isMock == false) 
+                 {
+                    callbackContext.success(0);
+                  } else {
+                    callbackContext.success(1);
+
+                  }
+                  return true;
+                 }
         }
 		return false;
     }
