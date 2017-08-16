@@ -63,7 +63,7 @@ public class FakeLocation extends CordovaPlugin
 
         if (count > 0)
         {
-        callbackContext.success(1);
+        callbackContext.success(count);
         } 
         else
         {
