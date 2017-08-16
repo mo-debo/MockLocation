@@ -6,6 +6,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import android.provider.Settings.Secure;
 import android.os.Build;
+import android.location.Location;
+import com.esri.cordova.geolocation.controllers.GPSController;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+
 public class FakeLocation extends CordovaPlugin 
 {
 
@@ -23,18 +30,43 @@ public class FakeLocation extends CordovaPlugin
 				callbackContext.success(1);
 			}
                         return true;
-             }else
-                 {
-                 boolean isMock = false;
-                 if (isMock == false) 
-                 {
-                    callbackContext.success(0);
-                  } else {
-                    callbackContext.success(1);
+             }
+              else
+             {
+                int count = 0;
 
-                  }
-                  return true;
-                 }
+        PackageManager pm = context.getPackageManager();
+        List<ApplicationInfo> packages =
+                pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+        for (ApplicationInfo applicationInfo : packages) {
+            try {
+                PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName,
+                        PackageManager.GET_PERMISSIONS);
+
+                // Get Permissions
+                String[] requestedPermissions = packageInfo.requestedPermissions;
+
+                if (requestedPermissions != null) {
+                    for (int i = 0; i < requestedPermissions.length; i++) {
+                        if (requestedPermissions[i]
+                                .equals("android.permission.ACCESS_MOCK_LOCATION")
+                                && !applicationInfo.packageName.equals("AndalousMobile")) {
+                            count++;
+                        }
+                    }
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e(TAG, "Got exception " + e.getMessage());
+            }
+        }
+
+        if (count > 0) {
+            return true;
+        } else {
+            return false;
+        }
+             }
         }
 		return false;
     }
