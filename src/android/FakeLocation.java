@@ -34,7 +34,7 @@ public class FakeLocation extends CordovaPlugin
               else
              {
                 int count = 0;
-
+        Context context = this.cordova.getActivity().getApplicationContext();
         PackageManager pm = context.getPackageManager();
         List<ApplicationInfo> packages =
                 pm.getInstalledApplications(PackageManager.GET_META_DATA);
