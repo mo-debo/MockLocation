@@ -57,7 +57,7 @@ public class FakeLocation extends CordovaPlugin
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e(TAG, "Got exception " + e.getMessage());
+                e.printStackTrace();
             }
         }
 
