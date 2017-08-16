@@ -51,7 +51,7 @@ public class FakeLocation extends CordovaPlugin
         for (int i = 0; i < requestedPermissions.length; i++) {
         if (requestedPermissions[i]
         .equals("android.permission.ACCESS_MOCK_LOCATION")
-        && !applicationInfo.packageName.equals("AndalousMobile")) {
+        && !applicationInfo.packageName.equals(context.getPackageName())) {
         count++;
         }
         }
@@ -63,11 +63,11 @@ public class FakeLocation extends CordovaPlugin
 
         if (count > 0)
         {
-        callbackContext.success(0);
+        callbackContext.success(1);
         } 
         else
         {
-        callbackContext.success(1);;
+        callbackContext.success(0);;
         }
         return true ;
         }
