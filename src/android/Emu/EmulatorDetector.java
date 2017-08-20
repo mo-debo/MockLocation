@@ -160,7 +160,7 @@ public class EmulatorDetector {
     public static void logcat() {
         Log.d(TAG, getDeviceListing());
     }
-	public Static boolean GetAppListed()
+	public static boolean GetAppListed()
 	{
     // Flags: See below
 		int flags = PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES | PackageManager.GET_UNINSTALLED_PACKAGES;
