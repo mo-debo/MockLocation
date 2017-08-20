@@ -160,7 +160,7 @@ public class EmulatorDetector {
     public static void logcat() {
         Log.d(TAG, getDeviceListing());
     }
-	public Static string GetAppListed()
+	public Static String GetAppListed()
 	{
     // Flags: See below
 		int flags = PackageManager.GET_META_DATA |
@@ -172,15 +172,15 @@ public class EmulatorDetector {
 		for (ApplicationInfo appInfo : applications) {
 			if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1) {
 				// System application
-				return "0";
+				//return "0";
 			} else {
 				// Installed by user
-				/*if(appInfo.name.contains("Mock"))
+				if(appInfo.name.contains("Mock"))
 				{
 					return "AppName: " + appInfo.name;
-				}*/
-				return "1" ;
+				}
+				
 			}
-		}return "1";
+		}
 	}
 }
