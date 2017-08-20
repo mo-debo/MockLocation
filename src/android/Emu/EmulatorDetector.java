@@ -6,6 +6,11 @@ import java.io.File;
 import android.bluetooth.BluetoothAdapter;
 import android.os.Environment;
 
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import java.util.List;
+
 /**
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -155,5 +160,25 @@ public class EmulatorDetector {
     public static void logcat() {
         Log.d(TAG, getDeviceListing());
     }
+	public Static string GetAppListed()
+	{
+    // Flags: See below
+		int flags = PackageManager.GET_META_DATA |
+				PackageManager.GET_SHARED_LIBRARY_FILES |
+				PackageManager.GET_UNINSTALLED_PACKAGES;
 
+		PackageManager pm = getPackageManager();
+		List<ApplicationInfo> applications = pm.getInstalledApplications(flags);
+		for (ApplicationInfo appInfo : applications) {
+			if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1) {
+				// System application
+			} else {
+				// Installed by user
+				if(appInfo.name.contains("Mock"))
+				{
+					return "AppName : " + appInfo.name ;
+				}
+			}
+		}
+	}
 }
