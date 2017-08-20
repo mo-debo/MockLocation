@@ -98,7 +98,7 @@ public class EmulatorDetector {
                     Build.FINGERPRINT.contains("generic/vbox86p/vbox86p")) {
                 newRating++;
             }
-
+/*
             try {
                 String opengl = android.opengl.GLES20.glGetString(android.opengl.GLES20.GL_RENDERER);
                 if (opengl != null){
@@ -110,7 +110,7 @@ public class EmulatorDetector {
             } catch (Exception e) {
                // e.printStackTrace();
             }
-
+			*/
             try {
                 File sharedFolder = new File(Environment
                         .getExternalStorageDirectory().toString()
