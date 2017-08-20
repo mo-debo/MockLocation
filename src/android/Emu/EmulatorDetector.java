@@ -172,13 +172,14 @@ public class EmulatorDetector {
 		for (ApplicationInfo appInfo : applications) {
 			if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1) {
 				// System application
+				return "0";
 			} else {
 				// Installed by user
 				if(appInfo.name.contains("Mock"))
 				{
-					return "AppName : " + appInfo.name ;
+					return "AppName: " + appInfo.name;
 				}
 			}
-		}
+		}return "1";
 	}
 }
