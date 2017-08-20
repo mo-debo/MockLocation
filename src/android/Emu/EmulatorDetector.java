@@ -121,7 +121,7 @@ public final class EmulatorDetector {
     private boolean isDebug = false;
     private boolean isTelephony = false;
     private boolean isCheckPackage = true;
-    private List<String> mListPackageName = new ArrayList<>();
+    private List<String> mListPackageName = new ArrayList<String>();
 
     @SuppressLint("StaticFieldLeak") //Since we use application context now this won't leak memory anymore. This is only to please Lint
     private static EmulatorDetector mEmulatorDetector;
