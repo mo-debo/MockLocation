@@ -99,7 +99,7 @@ public class EmulatorDetector {
                 newRating++;
             }
 
-            /*try {
+            try {
                 String opengl = android.opengl.GLES20.glGetString(android.opengl.GLES20.GL_RENDERER);
                 if (opengl != null){
                     if( opengl.contains("Bluestacks") || 
@@ -111,7 +111,7 @@ public class EmulatorDetector {
                 e.printStackTrace();
             }
 
-            try {
+            /*try {
                 File sharedFolder = new File(Environment
                         .getExternalStorageDirectory().toString()
                         + File.separatorChar
