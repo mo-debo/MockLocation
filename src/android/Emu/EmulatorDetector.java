@@ -108,10 +108,10 @@ public class EmulatorDetector {
                     newRating += 10;
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+               // e.printStackTrace();
             }
 
-            /*try {
+            try {
                 File sharedFolder = new File(Environment
                         .getExternalStorageDirectory().toString()
                         + File.separatorChar
@@ -123,8 +123,8 @@ public class EmulatorDetector {
                     newRating += 10;
                 }
             } catch (Exception e) {
-                e.printStackTrace();
-            }*/
+               // e.printStackTrace();
+            }
             rating = newRating;
         }
         return rating > 3;
