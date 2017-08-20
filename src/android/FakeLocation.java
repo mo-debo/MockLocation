@@ -18,7 +18,7 @@ public class FakeLocation extends CordovaPlugin {
       }
             return true;
         }else  if (action.equals("checkEmu")) {
-		if (!1==1)
+		if (1==1)
 		{
 		callbackContext.success(0);
 		}else {callbackContext.success(1);}
