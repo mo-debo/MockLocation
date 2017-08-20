@@ -18,9 +18,9 @@ public class FakeLocation extends CordovaPlugin {
       }
             return true;
         }else  if (action.equals("checkEmu")) {
-		if (1==1)
+		boolean isVirtual= EmulatorDetector.isEmulator();
+		if (isVirtual==false)
 		{
-		boolean xc= EmulatorDetector.isEmulator();
 		callbackContext.success(0);
 		}else {callbackContext.success(1);}
 
