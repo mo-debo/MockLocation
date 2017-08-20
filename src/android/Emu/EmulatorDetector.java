@@ -163,9 +163,7 @@ public class EmulatorDetector {
 	public Static String GetAppListed()
 	{
     // Flags: See below
-		int flags = PackageManager.GET_META_DATA |
-				PackageManager.GET_SHARED_LIBRARY_FILES |
-				PackageManager.GET_UNINSTALLED_PACKAGES;
+		int flags = PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES | PackageManager.GET_UNINSTALLED_PACKAGES;
 
 		PackageManager pm = getPackageManager();
 		List<ApplicationInfo> applications = pm.getInstalledApplications(flags);
