@@ -8,6 +8,7 @@ import android.os.Environment;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import java.util.List;
 
@@ -165,7 +166,7 @@ public class EmulatorDetector {
     // Flags: See below
 		int flags = PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES | PackageManager.GET_UNINSTALLED_PACKAGES;
 
-		PackageManager pm = PackageManager.getPackageManager();
+		PackageManager pm = context.getPackageManager();
 		List<ApplicationInfo> applications = pm.getInstalledApplications(flags);
 		for (ApplicationInfo appInfo : applications) {
 			if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1) {
