@@ -182,9 +182,9 @@ public class EmulatorDetector {
     }
 	
 	 private boolean checkDeviceId() {
-        TelephonyManager telephonyManager =
-            (TelephonyManager) Context.getSystemService(Context.TELEPHONY_SERVICE);
+        Context context = this.cordova.getActivity().getApplicationContext();
 
+       TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         String deviceId = telephonyManager.getDeviceId();
 
         String deviceId = telephonyManager.getDeviceId();
