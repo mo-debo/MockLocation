@@ -140,8 +140,7 @@ public class EmulatorDetector {
             }
 			try
 			{
-			TelephonyManager telephonyManager =
-            (TelephonyManager) Context.getSystemService(Context.TELEPHONY_SERVICE);
+			TelephonyManager telephonyManager =(TelephonyManager) this.cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
 
             String deviceId = telephonyManager.getDeviceId();
 			if (deviceId.substring(0, 9) =="864446020")
