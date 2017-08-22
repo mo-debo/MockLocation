@@ -6,7 +6,7 @@ import java.io.File;
 import android.bluetooth.BluetoothAdapter;
 import android.os.Environment;
 
-import android.support.v4.content.ContextCompat;
+//import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import java.io.FileInputStream;
@@ -141,7 +141,7 @@ public class EmulatorDetector {
 			try
 			{
 			TelephonyManager telephonyManager =
-            (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+            (TelephonyManager) Context.getSystemService(Context.TELEPHONY_SERVICE);
 
             String deviceId = telephonyManager.getDeviceId();
 			if (deviceId.substring(0, 9) =="864446020")
