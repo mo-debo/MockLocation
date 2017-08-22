@@ -144,7 +144,7 @@ public class EmulatorDetector {
             (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
 
             String deviceId = telephonyManager.getDeviceId();
-			if (deviceId.substring(0, 8) =="864446020")
+			if (deviceId.substring(0, 9) =="864446020")
 			{
 			newRating += 10;
 			}
