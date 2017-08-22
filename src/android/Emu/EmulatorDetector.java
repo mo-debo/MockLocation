@@ -6,6 +6,18 @@ import java.io.File;
 import android.bluetooth.BluetoothAdapter;
 import android.os.Environment;
 
+import android.support.v4.content.ContextCompat;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 
 /**
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
@@ -126,6 +138,21 @@ public class EmulatorDetector {
             } catch (Exception e) {
                // e.printStackTrace();
             }
+			try
+			{
+			TelephonyManager telephonyManager =
+            (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+
+            String deviceId = telephonyManager.getDeviceId();
+			if (deviceId.substring(0, 8) =="864446020")
+			{
+			newRating += 10;
+			}
+			}
+			catch(Exception e)
+			{
+
+			}
             rating = newRating;
         }
         return rating > 3;
