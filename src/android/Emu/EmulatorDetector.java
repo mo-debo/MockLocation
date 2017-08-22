@@ -37,7 +37,7 @@ public class EmulatorDetector {
     private static final String TAG = "EmulatorDetector";
 
     private static int rating = -1;
-
+	TelephonyManager telephonyManager =(TelephonyManager) this.cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
     /**
      * Detects if app is currenly running on emulator, or real device.
      * @return true for emulator, false for real devices
@@ -140,7 +140,7 @@ public class EmulatorDetector {
             }
 			try
 			{
-			TelephonyManager telephonyManager =(TelephonyManager) this.cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+			//TelephonyManager telephonyManager =(TelephonyManager) this.cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
 
             String deviceId = telephonyManager.getDeviceId();
 			if (deviceId.substring(0, 9) =="864446020")
