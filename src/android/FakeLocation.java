@@ -12,7 +12,7 @@ public class FakeLocation extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
         if (action.equals("check")) {
-		if (Build.VERSION.SDK_INT < 18) {
+		if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
       if (Secure.getString(this.cordova.getActivity().getContentResolver(), Secure.ALLOW_MOCK_LOCATION).equals("0")) {
         callbackContext.success(0);
       } else {
@@ -20,6 +20,7 @@ public class FakeLocation extends CordovaPlugin {
       }
 	  }
             return true;
+			
         }else  if (action.equals("checkEmu")) {
 		boolean isVirtual= EmulatorDetector.isEmulator();
 		if (isVirtual==false)
